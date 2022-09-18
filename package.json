@@ -1,8 +1,8 @@
 {
-  "name": "homebridge-sony-audio-control",
-  "version": "2.4.4",
+  "name": "homebridge-sony-audio-control-optional-volume",
+  "version": "1.0.0",
   "license": "ISC",
-  "description": "Homebridge plugin to control a Sony STR-DN1080 AV-receiver",
+  "description": "Homebridge plugin to control a Sony STR-DN1080 AV-receiver with optional volume control",
   "main": "src/index.js",
   "type": "module",
   "keywords": [
@@ -13,11 +13,11 @@
     "homebridge": ">=0.2.0"
   },
   "author": {
-    "name": "Andi, Tor André Roland and Maxi Herczegh"
+    "name": "v0rap, Andi, Tor André Roland and Maxi Herczegh"
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:torandreroland/homebridge-sony-audio-control.git"
+    "url": "git@github.com:vorap/homebridge-sony-audio-control.git"
   },
   "dependencies": {
     "node-fetch": "^3.1.0",
