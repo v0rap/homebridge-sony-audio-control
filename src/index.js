@@ -43,6 +43,7 @@ class SonyAudioControlReceiver {
     this.serialNumber = this.accessoryInformation.serialNumber || "Serial number 1";
     this.maxVolume = config.maxVolume || 100;
     this.enableNetworkStandby = config.enableNetworkStandby === false ? false : true;
+    this.enableVolumeAccessory = config.enableVolumeAccessory === false ? false : true;
 
     this.pollingInterval = 10000;
 
@@ -100,10 +101,12 @@ class SonyAudioControlReceiver {
       soundFieldServices: this.hapServices.soundFieldServices
     };
 
-    this.log("Creating volume service!");
-    const volumeService = new VolumeService(serviceParams, this.maxVolume);
-    this.services.volumeService = volumeService;
-    this.hapServices.volumeService = volumeService.hapService;
+    if(this.enableVolumeAccessory) {
+      this.log("Creating volume service!");
+      const volumeService = new VolumeService(serviceParams, this.maxVolume);
+      this.services.volumeService = volumeService;
+      this.hapServices.volumeService = volumeService.hapService;
+    }
 
     this.log("Creating power service!");
     const powerService = new PowerService(serviceParams);
