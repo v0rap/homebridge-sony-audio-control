@@ -5,6 +5,7 @@ class Notifications {
   constructor(notificationParams, lib) {
     this.url = `ws://${notificationParams.ip}:${notificationParams.port}/sony/${lib}`;
     this.lib = lib;
+    this.volumeEnabled = notificationParams.volumeEnabled;
     this.lastChanges = notificationParams.lastChanges;
     this.log = notificationParams.log;
     this.pollingInterval = notificationParams.pollingInterval;
@@ -17,8 +18,11 @@ class Notifications {
     const notificationHandlers = {
       "notifyExternalTerminalStatus": this.notifyExternalTerminalStatus.bind(this),
       "notifyPlayingContentInfo": this.notifyPlayingContentInfo.bind(this),
-      "notifyVolumeInformation": this.notifyVolumeInformation.bind(this)
     };
+
+    if(this.volumeEnabled) {
+      notificationHandlers["notifyVolumeInformation"] = this.notifyVolumeInformation.bind(this)
+    }
 
     this.client = new WebSocketClient({keepalive: true, keepaliveInterval: this.pollingInterval}); 
 
