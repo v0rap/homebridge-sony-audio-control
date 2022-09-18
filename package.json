@@ -1,6 +1,6 @@
 {
   "name": "homebridge-sony-audio-control-optional-volume",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "license": "ISC",
   "description": "Homebridge plugin to control a Sony STR-DN1080 AV-receiver with optional volume control",
   "main": "src/index.js",
