@@ -52,18 +52,21 @@ class SonyAudioControlReceiver {
     };
 
     this.services = {
-      volumeService: null,
       powerService: null,
       inputServices: [],
       soundFieldServices: []
     };
     this.hapServices = {
       informationService: null,
-      volumeService: null,
       powerService: null,
       inputServices: [],
       soundFieldServices: []
     };
+
+    if(this.enableVolumeAccessory) {
+      this.hapServices.volumeService = null;
+      this.services.volumeService = null;
+    }
 
     this.notifications = [];
 
@@ -141,6 +144,7 @@ class SonyAudioControlReceiver {
       log: this.log,
       pollingInterval: this.pollingInterval,
       outputZone: this.outputZone,
+      volumeEnabled: this.enableVolumeAccessory,
       services: this.services,
       hapServices: this.hapServices,
       lastChanges: this.lastChanges,
@@ -153,8 +157,12 @@ class SonyAudioControlReceiver {
       this.notifications.push(new Notifications(notificationParams, lib));
     }
 
-    return [this.services.informationService, this.hapServices.volumeService, this.hapServices.powerService]
-      .concat(this.hapServices.inputServices, this.hapServices.soundFieldServices);
+    const svcList = [this.services.informationService, this.hapServices.powerService]
+    // Return volume service only if wanted in config
+    if(this.enableVolumeAccessory) {
+      svcList.push(this.hapServices.volumeService)
+    }
+    return svcList.concat(this.hapServices.inputServices, this.hapServices.soundFieldServices);
   }
 
   async getModelName() {
