@@ -3,6 +3,13 @@ With this plugin you can create HomeKit services to control a Sony STR-DN1080 Au
 
 The code for this plugin has originally been forked from [Http Speaker for Homebridge](https://github.com/Supereg/homebridge-http-speaker) authored by Andreas Bauer.
 
+## Note from v0rap
+
+I modified this plugin to allow for toggling the volume control accessory
+using the config. This was because every time I told siri to "Set all the
+lights in the living room to 100%" it would blast my ears off since the volume
+control is registered as a lamp.
+
 ## Compatibility notice
 This plugin utilizes Sony's [Audio Control API](https://developer.sony.com/develop/audio-control-api/). It has only been tested with a Sony STR-DN1080 Audio Video Receiver, but it may work with other Sony devices that support the API.
 
