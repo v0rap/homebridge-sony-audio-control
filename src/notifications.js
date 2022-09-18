@@ -116,7 +116,11 @@ class Notifications {
     this.hapServices.powerService.getCharacteristic(this.Characteristic.On).updateValue(newPowerState);
     this.log("Updated power to " + newPowerState);
 
-    const affectedServices = this.hapServices.inputServices.concat(this.hapServices.soundFieldServices, this.hapServices.volumeService);
+
+    const affectedServices = this.hapServices.inputServices.concat(this.hapServices.soundFieldServices);
+    if(this.volumeEnabled) {
+      affectedServices.push(this.hapServices.volumeService);
+    }
     if (newPowerState) {
       this.log.debug("Waiting for device to turn on...");
       
