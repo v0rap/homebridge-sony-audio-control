@@ -54,6 +54,13 @@
                 "required": false,
                 "description": "Enable to allow to turn on from standby (significantly raises energy consumption)"
             },
+            "enableVolumeAccessory": {
+                "title": "Enable Volume Accessory",
+                "type": "boolean",
+                "default": true,
+                "required": false,
+                "description": "Enables an accessory to allow for sound volume adjustment,"
+            },
             "inputs": {
                 "title": "Inputs",
                 "type": "array",
@@ -148,6 +155,9 @@
         },
         {
             "key": "enableNetworkStandby"
+        },
+        {
+            "key": "enableVolumeAccessory"
         },
         {
             "type": "section",
