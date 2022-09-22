@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git@github.com:vorap/homebridge-sony-audio-control.git"
+    "url": "git@github.com:v0rap/homebridge-sony-audio-control.git"
   },
   "dependencies": {
     "node-fetch": "^3.1.0",
